@@ -151,10 +151,11 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        'Boarer Token': {
-            'type': 'Format: "Boarer \{access_key\}"',
+        'api_key': {
+            'type': 'apiKey',
             'in': 'header',
-            'name': 'Authorization'
+            'name': 'Authorization',
+            'description': 'Format: "Boarer \{access_key\}"'
         }
     },
 }
