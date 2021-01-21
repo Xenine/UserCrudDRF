@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '2yx&bj+wfhxe6$w#-46098g^nheu&81m)yhy*-h8&fp&!61_l@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -87,7 +87,7 @@ DATABASES = {
     }
 }
 
-prod_db  =  dj_database_url.config(conn_max_age=600)
+prod_db = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(prod_db)
 
 
