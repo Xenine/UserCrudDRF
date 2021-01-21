@@ -9,7 +9,5 @@ router = SimpleRouter()
 router.register(r'users', view.UserModelViewSet, basename='users')
 
 urlpatterns = [
-    path('token-auth/', TokenObtainPairView.as_view()),
-    path('token-auth/refresh/', TokenRefreshView.as_view()),
     path('', include(router.urls)),
 ]
