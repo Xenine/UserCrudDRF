@@ -11,20 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-    def update(self, user, validated_data):            
-        user.username = validated_data.get('username')
-        user.first_name = validated_data.get('first_name')
-        user.last_name = validated_data.get('last_name')
-        password = validated_data.get('password')
-        user.set_password(password)
-        user.save()
-        return user
-
-    def partial_update(self, user, validated_data):
+    def update(self, user, validated_data, partial):
         user.username = validated_data.get('username', user.username)
         user.first_name = validated_data.get('first_name', user.first_name)
         user.last_name = validated_data.get('last_name', user.last_name)
-        password = validated_data.pop('password')
+        password = validated_data.get('password', user.password)
         user.set_password(password)
         user.save()
         return user
