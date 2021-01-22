@@ -12,16 +12,12 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
     def update(self, user, validated_data):            
-        try:
-            user.username = validated_data.get('username')
-            user.first_name = validated_data.get('first_name')
-            user.last_name = validated_data.get('last_name')
-            password = validated_data.get('password')
-            user.set_password(password)
-            user.save()
-        except:
-            return Response({'message': 'Необходимы все аргементы'})
-
+        user.username = validated_data.get('username')
+        user.first_name = validated_data.get('first_name')
+        user.last_name = validated_data.get('last_name')
+        password = validated_data.get('password')
+        user.set_password(password)
+        user.save()
         return user
 
     def partial_update(self, user, validated_data):
