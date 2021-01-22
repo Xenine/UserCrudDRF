@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-    def update(self, user, validated_data, partial):
+    def update(self, user, validated_data):
         user.username = validated_data.get('username', user.username)
         user.first_name = validated_data.get('first_name', user.first_name)
         user.last_name = validated_data.get('last_name', user.last_name)
